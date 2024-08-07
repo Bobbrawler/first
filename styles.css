@@ -1,0 +1,103 @@
+
+
+body
+{
+    background-size: cover;
+    background-position: center center; /* Центрирование изображения */
+    background-attachment: fixed; /* Фиксированный фон для того, чтобы изображение не прокручивалось вместе со страницей */
+    background-image: url("pictures/background.jpg");
+}
+
+
+.style
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.startButton
+{
+    margin: 100px 0 50px 0;
+    border-radius: 8px;
+    font-size: 40px;
+    transition: 0.5s;
+    background-color: rgb(26, 90, 143);
+}
+
+.startButton:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: rgb(105, 108, 121);
+}
+
+.dropdownList
+{
+    display: none;
+    transition: display 1s;
+    flex-direction: column;
+    margin: 50px 0 50px 0;
+    position: relative;
+    
+    width: 350px;
+    align-items: center;
+
+
+}
+
+.dropdownListItem
+{
+    font-size: 40px;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: rgb(26, 90, 143);
+    width: 350px;
+    transition: 0.5s;
+
+}
+
+.dropdownListItem:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: rgb(13, 34, 128);
+    
+    width: 450px;
+   
+    
+    
+}
+
+
+.image
+{
+    display: none;
+    position: relative;
+    
+    height:100%;
+    width: 600px;
+    border-radius: 20%;
+    border: 8px solid white;
+    box-shadow: 40px 0px 40px 0px rgba(34, 33, 33, 0.5);
+    transition: 0.5s;
+}
+
+.image:hover
+{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+
+.startButton-selected {
+    background-color: rgb(13, 34, 128);
+    transform: scale(1.5);
+    color: white;
+}
+
+
+
