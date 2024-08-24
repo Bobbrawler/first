@@ -1,0 +1,86 @@
+
+body
+{
+    background-size: cover;
+    background-position: center center; /* Центрирование изображения */
+    background-attachment: fixed; /* Фиксированный фон для того, чтобы изображение не прокручивалось вместе со страницей */
+    background-image: url("images/common/background.jpg");
+}
+#drop-down-list-for-selecting-a-car
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#start-button
+{
+    margin: 100px 0 100px 0;
+    border-radius: 8px;
+    border: 5px solid black;
+    font-size: 40px;
+    transition: 0.5s;
+    background-color: rgb(26, 90, 143);
+}
+#start-button:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: rgb(105, 108, 121);
+}
+#drop-down-list
+{
+    display: none;
+    transition: display 1s;
+    flex-direction: column;
+    position: relative;
+    width: 350px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    
+}
+.drop-down-list-item
+{
+    font-size: 40px;
+    border-radius: 8px;
+    background-color: rgb(26, 90, 143);
+    width: 350px;
+    transition: 0.5s;
+    text-align: center;
+    border: 5px solid black;
+    
+}
+.drop-down-list-item:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: rgb(13, 34, 128);
+    width: 450px;   
+}
+#image-of-the-selected-car
+{
+    display: none;
+    position: relative;
+    
+    height:100%;
+    width: 600px;
+    border-radius: 20%;
+    border: 8px solid white;
+    box-shadow: 40px 0px 40px 0px rgba(34, 33, 33, 0.5);
+    transition: 0.5s;
+}
+#image-of-the-selected-car:hover
+{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#start-button-selected {
+    background-color: rgb(13, 34, 128);
+    transform: scale(1.5);
+    color: white;
+}
+
+
+
