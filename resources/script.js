@@ -21,20 +21,15 @@ function openImageOfTheSelectedCar() {
 function closeImageOfTheSelectedCar() {
     imageOfTheSelectedCar.style.display = "none"
 }
-
 function handleClickAfterOpeningDropDownList(event) {
-    console.log(event.target.classList.value)
     if (event.target === startButton) {
         openDropdownList()
-        console.log("кнопка старта")
         return
     }
     if ((!dropDownListForSelectingACar.contains(event.target) && event.target !== startButton) || !(event.target.children.length === 0)) {
         closeDropdownList()
-        console.log("мимо")
         return
     }
-    console.log("выбрал")
     const selectedCarName = event.target.textContent
     startButton.textContent = selectedCarName
     settingUpTheImageLinkOfTheSelectedCar(selectedCarName)
@@ -42,7 +37,6 @@ function handleClickAfterOpeningDropDownList(event) {
     openImageOfTheSelectedCar()
 }
 function settingUpTheImageLinkOfTheSelectedCar(selectedCarName) {
-    console.log("images/"+carList[selectedCarName])
     imageOfTheSelectedCar.src = "resources/images/"+carList[selectedCarName]   
 }
 function selectCar(event) {
@@ -54,7 +48,6 @@ function selectCar(event) {
     openImageOfTheSelectedCar()
     addImageCar(selectedCarName)
 }
-
 function creatingDropDownListContent() {
     for (const carName in carList)
     {
@@ -66,5 +59,4 @@ function creatingDropDownListContent() {
 }
 creatingDropDownListContent()
 document.addEventListener('click',handleClickAfterOpeningDropDownList)
-
 }
