@@ -1,13 +1,18 @@
+:root {
+    --color-before-click: rgb(26, 90, 143)
+}
+
 body
 {
     font-family: "Lobster",sans-serif;
     font-style: normal;
     background-size: cover;
-    background-position: center center; /* Центрирование изображения */
-    background-attachment: fixed; /* Фиксированный фон для того, чтобы изображение не прокручивалось вместе со страницей */
-    background-image: url("images/common/background.jpg");
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-image: url(../images/common/background.jpg);
 }
-#drop-down-list-for-selecting-a-car
+
+.drop-down-list-container
 {
     display: flex;
     flex-direction: column;
@@ -15,7 +20,8 @@ body
     align-items: center;
     position: relative;
 }
-.start-button
+
+.button
 {
     font-family: "Lobster",sans-serif;
     font-style: normal;
@@ -24,15 +30,17 @@ body
     border: 5px solid black;
     font-size: 40px;
     transition: 0.5s;
-    background-color: rgb(26, 90, 143);
+    background-color: var(--color-before-click);
 }
-.start-button:hover
+
+.button:hover
 {
     cursor: pointer;
     transform: scale(1.2);
     background-color: rgb(105, 108, 121);
 }
-#drop-down-list
+
+.list
 {
     display: none;
     transition: display 1s;
@@ -44,17 +52,19 @@ body
     gap: 20px;
     
 }
+
 .drop-down-list-item
 {
     font-size: 40px;
     border-radius: 8px;
-    background-color: rgb(26, 90, 143);
+    background-color: var(--color-before-click);
     width: 350px;
     transition: 0.5s;
     text-align: center;
     border: 5px solid black;
     
 }
+
 .drop-down-list-item:hover
 {
     cursor: pointer;
@@ -62,11 +72,11 @@ body
     background-color: rgb(13, 34, 128);
     width: 450px;   
 }
-#image-of-the-selected-car
+
+.image
 {
     display: none;
     position: relative;
-    
     height:100%;
     width: 600px;
     border-radius: 20%;
@@ -74,16 +84,32 @@ body
     box-shadow: 40px 0px 40px 0px rgba(34, 33, 33, 0.5);
     transition: 0.5s;
 }
-#image-of-the-selected-car:hover
+
+.image:hover
 {
     cursor: pointer;
     transform: scale(1.1);
 }
-.start-button-selected {
+
+.button-selected {
     background-color: rgb(89, 223, 106);
     transform: scale(1.5);
     color: white;
     padding: 30px;
+}
+
+@media (max-width: 800px)
+{
+    .image {
+        width: 250px;
+    }
+}
+
+@media (max-width: 500px)
+{
+    .image {
+        width: 150px;
+    }
 }
 
 

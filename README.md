@@ -1,35 +1,35 @@
 # Site Car Selection
--Site Car Selection - это веб-приложение, позволяющее пользователям выбирать автомобиль из выпадающего списка. При выборе автомобиля отображается соответствующее изображение. 
+-Site Car Selection is a web application that allows users to select a car from a drop-down list. When a car is selected, the corresponding image is displayed.
 
-## Установка и запуск
-Клонируйте репозиторий:
+## Installation and Run
+Clone the repository:
 ```
 git clone https://github.com/your-username/choose-car.git
 ```
-Зайдите в папку проекта:
+Go to the project folder:
 ```
 cd choose-car
 ```
-Откройте index.html в веб-браузере: Найдите файл index.html в папке проекта и откройте его в любом современном веб-браузере (Chrome, Firefox, Safari и т.д.).
+Open index.html in a web browser: Find the index.html file in the project folder and open it in any modern web browser (Chrome, Firefox, Safari, etc.).
 
-## Использование
-1. Нажмите на кнопку "Open list".
-2. Выберите желаемый автомобиль из выпадающего списка.
-3. Нажатие на автомобиль обновит текст кнопки и отобразит изображение выбранного автомобиля.
+## Usage
+1. Click on the "Open list" button.
+2. Select the desired car from the drop-down list.
+3. Clicking on a car will update the button text and display the image of the selected car.
 
-## Функциональные возможности
-1. Выпадающий список: Пользователь может открыть список автомобилей, кликнув на кнопку "Open list".
-2. Выбор автомобиля: При нажатии на название автомобиля из списка, оно устанавливается как текст кнопки, а также отображается изображение выбранного автомобиля.
-3. Интерактивность: Элементы списка увеличиваются при наведении, что улучшает пользовательский опыт.
-4. Адаптивный дизайн: Приложение корректно отображается на различных устройствах благодаря адаптивному CSS.
+## Features
+1. Drop-down list: User can open the list of cars by clicking on the "Open list" button.
+2. Car Selection: When you click on a car name from the list, it is set as the button text and an image of the selected car is displayed.
+3. Interactivity: List items are enlarged on hover, improving user experience.
+4. Responsive Design: The app displays correctly on different devices thanks to responsive CSS.
 
-## Технологии
-1. HTML: Используется для структуры веб-страницы.
-2. CSS: Применяется для стилизации элементов и создания визуального оформления.
-3. JavaScript: Используется для добавления интерактивности, обработки событий и динамического изменения содержимого страницы.
+## Technologies
+1. HTML: Used for the structure of the web page.
+2. CSS: Used to style elements and create visual design.
+3. JavaScript: Used to add interactivity, handle events, and dynamically change the page content.
 
-## Основные файлы
-1. index.html: Главная HTML-страница приложения.
-2. resources/styles.css: Файл CSS для стилизации приложения.
-3. resources/script.js: Файл JavaScript для добавления интерактивности и логики приложения.
-4. resources/images/: Папка, содержащая изображения автомобилей.
+## Main Files
+1. index.html: The main HTML page of the app.
+2. resources/styles.css: CSS file for styling the app.
+3. resources/script.js: JavaScript file for adding interactivity and app logic.
+4. resources/images/: Folder containing car images.
