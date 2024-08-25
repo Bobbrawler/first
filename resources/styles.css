@@ -1,5 +1,7 @@
 body
 {
+    font-family: "Lobster",sans-serif;
+    font-style: normal;
     background-size: cover;
     background-position: center center; /* Центрирование изображения */
     background-attachment: fixed; /* Фиксированный фон для того, чтобы изображение не прокручивалось вместе со страницей */
@@ -13,16 +15,18 @@ body
     align-items: center;
     position: relative;
 }
-#start-button
+.start-button
 {
-    margin: 100px 0 100px 0;
+    font-family: "Lobster",sans-serif;
+    font-style: normal;
+    margin: 40px 0 100px 0;
     border-radius: 8px;
     border: 5px solid black;
     font-size: 40px;
     transition: 0.5s;
     background-color: rgb(26, 90, 143);
 }
-#start-button:hover
+.start-button:hover
 {
     cursor: pointer;
     transform: scale(1.2);
@@ -75,10 +79,11 @@ body
     cursor: pointer;
     transform: scale(1.1);
 }
-#start-button-selected {
-    background-color: rgb(13, 34, 128);
+.start-button-selected {
+    background-color: rgb(89, 223, 106);
     transform: scale(1.5);
     color: white;
+    padding: 30px;
 }
 
 

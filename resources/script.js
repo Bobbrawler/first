@@ -10,6 +10,7 @@ const imageOfTheSelectedCar = document.querySelector("#image-of-the-selected-car
 const dropDownListForSelectingACar = document.querySelector("#drop-down-list")
 function openDropdownList() {
     dropDownListForSelectingACar.style.display = "flex"
+    startButton.classList.remove("start-button-selected")
     closeImageOfTheSelectedCar()  
 }
 function closeDropdownList() {
@@ -32,6 +33,7 @@ function handleClickAfterOpeningDropDownList(event) {
     }
     const selectedCarName = event.target.textContent
     startButton.textContent = selectedCarName
+    startButton.classList.add("start-button-selected")
     settingUpTheImageLinkOfTheSelectedCar(selectedCarName)
     closeDropdownList()
     openImageOfTheSelectedCar()
