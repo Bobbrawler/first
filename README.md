@@ -1,5 +1,5 @@
 # Site Car Selection
--Site Car Selection is a web application that allows users to select a car from a drop-down list. When a car is selected, the corresponding image is displayed.
+- Site Car Selection is a web application that allows users to select a car from a drop-down list. When a car is selected, the corresponding image is displayed.
 
 ## Installation and Run
 Clone the repository:

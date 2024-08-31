@@ -18,60 +18,74 @@ const carsMeta = {
     }  
 }
 
-const startButton = document.querySelector("#start-button")
-const imageSelectItem = document.querySelector("#image-select-item")
-const dropDownListSelectItem = document.querySelector("#drop-down-list")
+const startButtons = document.querySelectorAll(".start-button")
+const dropDownListsSelectItem = document.querySelectorAll(".drop-down-list")
 
-function setUpImageSrc(selectedItemKey) {
-    imageSelectItem.src = "resources/images/cars/"+carsMeta[selectedItemKey].imageSrc
-    console.log("resources/images/cars/"+carsMeta[selectedItemKey].imageSrc)  
+function openImageSelectItem(currentList) {
+    currentList.parentElement.querySelector(".image-select-item").style.display = "block"
 }
 
-function openimageSelectItem() {
-    imageSelectItem.style.display = "block"
-}
-
-function closeimageSelectItem() {
-    imageSelectItem.style.display = "none"
+function closeimageSelectItem(currentList) {
+    currentList.querySelector(".image-select-item").style.display = "none"
 }
 
 function openDropdownList(event) {
-    event.stopPropagation()
-    dropDownListSelectItem.style.display = "flex"
-    startButton.classList.remove("button-selected")
-    closeimageSelectItem()  
+    event.stopPropagation();
+    const container = event.target.closest('.drop-down-list-container');
+    const dropDownList = container.querySelector('.drop-down-list');
+    dropDownList.style.display = "flex";
+    event.target.classList.remove("start-button-selected");
+    closeimageSelectItem(container); 
 }
 
-function closeDropdownList() {
-    dropDownListSelectItem.style.display = "none"
+function closeDropDownAllLists() {
+    dropDownListsSelectItem.forEach(dropDownListSelectItem => {
+        dropDownListSelectItem.style.display = "none"
+    })
+}
+
+function closeDropDownList(currentList) {
+    currentList.style.display = "none"
+}
+
+function setUpImageSrc(selectedItemKey, currentImage) {
+    currentImage.src = "resources/images/cars/"+carsMeta[selectedItemKey].imageSrc
+    console.log("resources/images/cars/"+carsMeta[selectedItemKey].imageSrc)  
 }
 
 function handleClick(event) {
     event.stopPropagation()
-    if (!dropDownListSelectItem.contains(event.target) || !(event.target.className === "drop-down-list-item")) {
-        closeDropdownList()
+    if (!event.target.closest(".drop-down-list") || !(event.target.className === "drop-down-list-item")) {
+        closeDropDownAllLists()
         return
     }
-    const textSelectButton = event.target.closest(".drop-down-list-item").textContent
-    startButton.textContent = textSelectButton
-    startButton.classList.add("button-selected")
-    setUpImageSrc(event.target.getAttribute("data-item-key"))
-    openimageSelectItem()
-    closeDropdownList()
+    const currentDropDownList = event.target.closest(".drop-down-list")
+    const currentStartButton = currentDropDownList.parentElement.querySelector(".start-button")
+    const currentImageSelectItem = currentDropDownList.parentElement.querySelector(".image-select-item")
+    const selectItemName = event.target.textContent
+    currentStartButton.textContent = selectItemName
+    currentStartButton.classList.add("start-button-selected")
+    setUpImageSrc(event.target.getAttribute("data-item-key"), currentImageSelectItem)
+    openImageSelectItem(currentDropDownList)
+    closeDropDownList(currentDropDownList)
 }
 
-function createDropDownListContent() {
-    for (const car in carsMeta)
-    {
-        const itemSelectionButton = document.createElement('div')
-        itemSelectionButton.textContent = carsMeta[car].name
-        itemSelectionButton.classList.add("drop-down-list-item")
-        itemSelectionButton.setAttribute("data-item-key", car)
-        dropDownListSelectItem.appendChild(itemSelectionButton)
-    }
+function createDropDownListsContent() {
+    dropDownListsSelectItem.forEach(dropDownListSelectCar => {
+        for (const item in carsMeta)
+            {
+                const itemSelectionButton = document.createElement('div')
+                itemSelectionButton.textContent = carsMeta[item].name
+                itemSelectionButton.classList.add("drop-down-list-item")
+                itemSelectionButton.setAttribute("data-item-key", item)
+                dropDownListSelectCar.appendChild(itemSelectionButton)
+            }
+    })
 }
 
-createDropDownListContent()
+createDropDownListsContent()
+startButtons.forEach(startButton => {
+    startButton.addEventListener('click', openDropdownList)
+});
 document.addEventListener('click',handleClick)
-startButton.addEventListener('click', openDropdownList)
 }
