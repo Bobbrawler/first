@@ -4,7 +4,7 @@
 ## Installation and Run
 Clone the repository:
 ```
-git clone https://github.com/your-username/choose-car.git
+git clone https://github.com/Bobbrawler/site-car-selection.git
 ```
 Go to the project folder:
 ```

@@ -1,5 +1,10 @@
 :root {
-    --color-before-click: rgb(26, 90, 143)
+    --color-button-before-click: rgb(26, 90, 143);
+    --color-button-after-click: rgb(89, 223, 106);
+    --color-text-main: black;
+    --color-text-after-select: white;
+    --color-start-button-hover: rgb(105, 108, 121);
+    --color-drop-down-list-button-hover: rgb(13, 34, 128);
 }
 
 body
@@ -25,19 +30,19 @@ body
 {
     font-family: "Lobster",sans-serif;
     font-style: normal;
-    margin: 40px 0 100px 0;
+    margin: 20px 0 50px 0;
     border-radius: 8px;
-    border: 5px solid black;
+    border: 5px solid var(--color-text-main);
     font-size: 40px;
     transition: 0.5s;
-    background-color: var(--color-before-click);
+    background-color: var(--color-button-before-click);
 }
 
 .button:hover
 {
     cursor: pointer;
     transform: scale(1.2);
-    background-color: rgb(105, 108, 121);
+    background-color: var(--color-start-button-hover);
 }
 
 .list
@@ -57,11 +62,11 @@ body
 {
     font-size: 40px;
     border-radius: 8px;
-    background-color: var(--color-before-click);
+    background-color: var(--color-button-before-click);
     width: 350px;
     transition: 0.5s;
     text-align: center;
-    border: 5px solid black;
+    border: 5px solid var(--color-text-main);
     
 }
 
@@ -69,7 +74,7 @@ body
 {
     cursor: pointer;
     transform: scale(1.2);
-    background-color: rgb(13, 34, 128);
+    background-color: var(--color-drop-down-list-button-hover);
     width: 450px;   
 }
 
@@ -88,13 +93,13 @@ body
 .image:hover
 {
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .button-selected {
-    background-color: rgb(89, 223, 106);
+    background-color: var(--color-button-after-click);
     transform: scale(1.5);
-    color: white;
+    color: var(--color-text-after-select);
     padding: 30px;
 }
 
