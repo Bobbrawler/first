@@ -42,14 +42,16 @@ window.onload = function () {
   ) {
     event.stopPropagation();
     closeDropdownLists();
-    dropDownListSelectItem.style.display = "flex";
-    startButton.classList.remove("button-selected");
+    //dropDownListSelectItem.style.display = "flex";
+    dropDownListSelectItem.classList.add("open")
+    startButton.classList.remove("start-button-selected");
     closeImageSelectItem(selectItemImage);
   }
 
   function closeDropdownLists() {
     dropDownLists.forEach((dropDownList) => {
-      dropDownList.style.display = "none";
+      //dropDownList.style.display = "none";
+      dropDownList.classList.remove("open")
     });
   }
 
@@ -68,7 +70,7 @@ window.onload = function () {
       ".drop-down-list-item"
     ).textContent;
     startButton.textContent = selectItemName;
-    startButton.classList.add("button-selected");
+    startButton.classList.add("start-button-selected");
     setUpImageSrc(selectItemImage, selectItemName);
     openImageSelectItem(selectItemImage);
     closeDropdownLists();
