@@ -12,7 +12,8 @@ cd choose-item
 ```
 Open index.html in a web browser: Find the index.html file in the project folder and open it in any modern web browser (Chrome, Firefox, Safari, etc.).
 
-To enter your database for selection, you need to create a JSON file ``` 
+To enter your database for selection, you need to create a JSON file
+``` 
 meta.json
 ```
 and place it along the path

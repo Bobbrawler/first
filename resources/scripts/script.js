@@ -42,7 +42,6 @@ window.onload = function () {
   ) {
     event.stopPropagation();
     closeDropdownLists();
-    //dropDownListSelectItem.style.display = "flex";
     dropDownListSelectItem.classList.add("open")
     startButton.classList.remove("start-button-selected");
     closeImageSelectItem(selectItemImage);
@@ -50,7 +49,6 @@ window.onload = function () {
 
   function closeDropdownLists() {
     dropDownLists.forEach((dropDownList) => {
-      //dropDownList.style.display = "none";
       dropDownList.classList.remove("open")
     });
   }
