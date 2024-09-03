@@ -8,7 +8,7 @@ git clone https://github.com/Bobbrawler/site-item-selection.git
 ```
 Go to the project folder:
 ```
-cd choose-item
+cd site-item-selection
 ```
 Open index.html in a web browser: Find the index.html file in the project folder and open it in any modern web browser (Chrome, Firefox, Safari, etc.).
 
@@ -18,12 +18,12 @@ An example of such a file:
 ```
 [
     {
-      "id": "id1"
+      "id": "id1",
       "name": "name1",
       "imageSrc": "imageSrc1"
     },
     {
-      "id": "id2"
+      "id": "id2",
       "name": "name2",
       "imageSrc": "imageSrc2"
     },
@@ -35,11 +35,11 @@ Field "name" is used to populate the list fields, and field "imageSrc" is used t
 ## Usage
 1. Click on the "Open list" button.
 2. Select the desired it from the drop-down list.
-3. Clicking on a item will update the button text and display the image of the selected item.
+3. Clicking on an item will update the button text and display the image of the selected item.
 
 ## Features
 1. Drop-down list: User can open the list of items by clicking on the "Open list" button.
-2. item Selection: When you click on a item name from the list, it is set as the button text and an image of the selected item is displayed.
+2. Item Selection: When you click on a item name from the list, it is set as the button text and an image of the selected item is displayed.
 3. Interactivity: List items are enlarged on hover, improving user experience.
 4. Responsive Design: The app displays correctly on different devices thanks to responsive CSS.
 
