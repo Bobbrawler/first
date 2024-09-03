@@ -29,7 +29,7 @@ An example of such a file:
 ]
   
 ```
-Field "name" is used to populate the list fields, and field "imageSrc" is used to open the image of the corresponding selected item.
+Field "name" is used to populate the list fields, and field "imageSrc" is used to open the image of the corresponding selected item. 
 
 ## Usage
 1. Click on the "Open list" button.
