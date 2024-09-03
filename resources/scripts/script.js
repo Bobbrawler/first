@@ -2,15 +2,9 @@ import itemsMeta from "../data/meta.json" with { type: "json" };
 
 window.onload = function () {
 
-  const dropDownListContainers = document.querySelectorAll(
-    ".drop-down-list-container"
-  );
-  const dropDownLists = document.querySelectorAll(".drop-down-list");
+  const dropDownListContainers = document.querySelectorAll(".drop-down-list-container");
 
-  function setUpImageSrc(selectItemImage, selectItemName) {
-    const selectItemSrc = itemsMeta.find(
-      (unit) => unit.name === selectItemName
-    ).imageSrc;
+  function setUpImageSrc(selectItemImage,selectItemSrc) {
     selectItemImage.src = "resources/images/items/" + selectItemSrc;
   }
 
@@ -22,70 +16,63 @@ window.onload = function () {
     selectItemImage.style.display = "none";
   }
 
-  function openDropdownList(
-    startButton,
-    dropDownListSelectItem,
-    selectItemImage,
-    event
-  ) {
+  function openDropdownList(startButton,list,selectItemImage) {
     event.stopPropagation();
     closeDropdownLists();
-    dropDownListSelectItem.classList.add("open")
+    const listContainer = list.parentElement;
+    listContainer.classList.add("open")
     startButton.classList.remove("start-button-selected");
     closeImageSelectItem(selectItemImage);
   }
 
   function closeDropdownLists() {
-    dropDownLists.forEach((dropDownList) => {
-      dropDownList.classList.remove("open")
+    dropDownListContainers.forEach((dropDownListContainer) => {
+      dropDownListContainer.classList.remove("open")
     });
   }
 
-
-  function selectProcess(startButton, selectItemImage, event) {
-    if (!event.target.closest(".drop-down-list-item")) {
+  function selectProcess(startButton, selectItemImage) {
+    const selectButton = event.target.closest(".drop-down-list-item")
+    if (!selectButton) {
       return;
     }
-    const selectItemName = event.target.closest(
-      ".drop-down-list-item"
-    ).textContent;
+    const selectItemName = selectButton.getAttribute("data-name");
+    const selectItemSrc = selectButton.getAttribute("data-imageSrc");
     startButton.textContent = selectItemName;
     startButton.classList.add("start-button-selected");
-    setUpImageSrc(selectItemImage, selectItemName);
+    setUpImageSrc(selectItemImage,selectItemSrc);
     openImageSelectItem(selectItemImage);
     closeDropdownLists();
   }
 
-  function createDropDownListContent(itemsMeta,dropDownListSelectItem) {
-    itemsMeta.forEach((item) => {
-      const itemSelectionButton = document.createElement("div");
-      itemSelectionButton.textContent = item.name;
-      itemSelectionButton.classList.add("drop-down-list-item");
-      dropDownListSelectItem.appendChild(itemSelectionButton);
-    });
+  function createListButton(item) {
+    const button = document.createElement("div");
+    button.textContent = item.name;
+    button.classList.add("drop-down-list-item");
+    button.setAttribute("data-id",item.id);
+    button.setAttribute("data-name",item.name);
+    button.setAttribute("data-imageSrc",item.imageSrc);
+    return button;
   }
 
-  function initDropDownLists() {
+  function initDropDownLists(itemsMeta) {
     dropDownListContainers.forEach((dropDownListContainer) => {
       const startButton = dropDownListContainer.querySelector(".start-button");
-      const selectItemImage =
-        dropDownListContainer.querySelector(".image-select-item");
-      const dropDownListSelectItem =
-        dropDownListContainer.querySelector(".drop-down-list");
-      createDropDownListContent(itemsMeta,dropDownListSelectItem);
-      dropDownListSelectItem.addEventListener("click", function () {
-        selectProcess(startButton, selectItemImage, event);
+      const image = dropDownListContainer.querySelector(".image-select-item");
+      const list = dropDownListContainer.querySelector(".drop-down-list")
+      itemsMeta.forEach((item) => {
+        const button = createListButton(item);
+        list.appendChild(button);
+      });
+      list.addEventListener("click", function () {
+        selectProcess(startButton, image);
       });
       startButton.addEventListener("click", function () {
-        openDropdownList(
-          startButton,
-          dropDownListSelectItem,
-          selectItemImage,
-          event
-        );
+        openDropdownList(startButton,list,image);
       });
     });
   }
-  initDropDownLists()
+  
+  initDropDownLists(itemsMeta)
   document.addEventListener("click", closeDropdownLists);
 };

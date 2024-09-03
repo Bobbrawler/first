@@ -62,16 +62,12 @@ body {
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.5s ease;
-
 }
 
-.drop-down-list.open {
+.drop-down-list-container.open .drop-down-list {
     max-height: 450px; 
     opacity: 1; 
 }
-
-
-
 
 .drop-down-list-item {
     font-size: 20px;

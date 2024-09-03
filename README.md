@@ -12,7 +12,8 @@ cd choose-item
 ```
 Open index.html in a web browser: Find the index.html file in the project folder and open it in any modern web browser (Chrome, Firefox, Safari, etc.).
 
-To enter your render data for selection, you need to create a JSON file "meta.json" and place it along the path resources/data/meta.json
+To enter your render data for selection, you need to create a JSON file "meta.json" and place it along the path resources/data/meta.json.
+
 An example of such a file:
 ```
 [
