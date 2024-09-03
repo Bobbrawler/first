@@ -13,7 +13,7 @@ window.onload = function () {
       console.error("Ошибка при загрузке данных:", error.message);
     }
   }
-
+//bla
   const dropDownListContainers = document.querySelectorAll(
     ".drop-down-list-container"
   );
