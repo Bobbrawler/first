@@ -1,17 +1,21 @@
 [
     {
+      "id": "1",
       "name": "Mazda Miata",
       "imageSrc": "mazdaMiata.jpg"
     },
     {
+      "id": "2",
       "name": "Ferrari F40",
       "imageSrc": "ferrariF40.jpg"
     },
     {
+      "id": "3",
       "name": "Toyota Levin",
       "imageSrc": "toyotaLevin.jpg"
     },
     {
+      "id": "4",
       "name": "Chevrolet Corvette",
       "imageSrc": "corvet.jpg"
     }

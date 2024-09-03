@@ -1,19 +1,7 @@
+import itemsMeta from "../data/meta.json" with { type: "json" };
+
 window.onload = function () {
-  let itemsMeta;
-  const itemsMetaURL = "http://127.0.0.1:5500/resources/data/meta.json";
-  async function loadItemsMeta(itemsMetaURL) {
-    try {
-      const response = await fetch(itemsMetaURL);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      itemsMeta = await response.json();
-      initDropDownLists();
-    } catch (error) {
-      console.error("Ошибка при загрузке данных:", error.message);
-    }
-  }
-//dsdsds
+
   const dropDownListContainers = document.querySelectorAll(
     ".drop-down-list-container"
   );
@@ -53,12 +41,6 @@ window.onload = function () {
     });
   }
 
-  function clickNotOnLists(event) {
-    if (!(event.target.className === "drop-down-list-item")) {
-      closeDropdownLists();
-      return;
-    }
-  }
 
   function selectProcess(startButton, selectItemImage, event) {
     if (!event.target.closest(".drop-down-list-item")) {
@@ -74,6 +56,15 @@ window.onload = function () {
     closeDropdownLists();
   }
 
+  function createDropDownListContent(itemsMeta,dropDownListSelectItem) {
+    itemsMeta.forEach((item) => {
+      const itemSelectionButton = document.createElement("div");
+      itemSelectionButton.textContent = item.name;
+      itemSelectionButton.classList.add("drop-down-list-item");
+      dropDownListSelectItem.appendChild(itemSelectionButton);
+    });
+  }
+
   function initDropDownLists() {
     dropDownListContainers.forEach((dropDownListContainer) => {
       const startButton = dropDownListContainer.querySelector(".start-button");
@@ -81,15 +72,7 @@ window.onload = function () {
         dropDownListContainer.querySelector(".image-select-item");
       const dropDownListSelectItem =
         dropDownListContainer.querySelector(".drop-down-list");
-      function createDropDownListContent() {
-        itemsMeta.forEach((item) => {
-          const itemSelectionButton = document.createElement("div");
-          itemSelectionButton.textContent = item.name;
-          itemSelectionButton.classList.add("drop-down-list-item");
-          dropDownListSelectItem.appendChild(itemSelectionButton);
-        });
-      }
-      createDropDownListContent();
+      createDropDownListContent(itemsMeta,dropDownListSelectItem);
       dropDownListSelectItem.addEventListener("click", function () {
         selectProcess(startButton, selectItemImage, event);
       });
@@ -103,7 +86,6 @@ window.onload = function () {
       });
     });
   }
-
-  loadItemsMeta(itemsMetaURL);
-  document.addEventListener("click", clickNotOnLists);
+  initDropDownLists()
+  document.addEventListener("click", closeDropdownLists);
 };
