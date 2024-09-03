@@ -12,29 +12,24 @@ cd choose-item
 ```
 Open index.html in a web browser: Find the index.html file in the project folder and open it in any modern web browser (Chrome, Firefox, Safari, etc.).
 
-To enter your database for selection, you need to create a JSON file
-``` 
-meta.json
-```
-and place it along the path
-```
-resources/data
-```
+To enter your render data for selection, you need to create a JSON file "meta.json" and place it along the path resources/data/meta.json
 An example of such a file:
 ```
 [
     {
+      "id": "id1"
       "name": "name1",
       "imageSrc": "imageSrc1"
     },
     {
+      "id": "id2"
       "name": "name2",
       "imageSrc": "imageSrc2"
     },
 ]
   
 ```
-method "name" is used to populate the list fields, and method "imageSrc" is used to open the image of the corresponding selected item.
+Field "name" is used to populate the list fields, and field "imageSrc" is used to open the image of the corresponding selected item.
 
 ## Usage
 1. Click on the "Open list" button.
