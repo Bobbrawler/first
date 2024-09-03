@@ -32,7 +32,6 @@ body {
     width: 350px;
 }
 
-
 .start-button {
     font-family: "Lobster", sans-serif;
     font-style: normal;
@@ -111,12 +110,12 @@ body {
 
 @media (max-width: 800px) {
     .image-select-item {
-        width: 250px;
+        width: 125px;
     }
 }
 
 @media (max-width: 500px) {
     .image-select-item {
-        width: 150px;
+        width: 100px;
     }
 }
