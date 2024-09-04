@@ -49,6 +49,13 @@ body {
     background-color: var(--color-start-button-hover);
 }
 
+.start-button-selected {
+    background-color: var(--color-button-after-click);
+    transform: scale(1.2);
+    color: var(--color-text-after-select);
+    padding: 15px;
+}
+
 .drop-down-list {
     display: flex;
     flex-direction: column;
@@ -63,7 +70,7 @@ body {
     transition: max-height 1s ease, opacity 0.5s ease;
 }
 
-.drop-down-list-container.open .drop-down-list {
+.drop-down-list.open {
     max-height: 450px; 
     opacity: 1; 
 }
@@ -99,13 +106,6 @@ body {
 .image-select-item:hover {
     cursor: pointer;
     transform: scale(1.05);
-}
-
-.start-button-selected {
-    background-color: var(--color-button-after-click);
-    transform: scale(1.2);
-    color: var(--color-text-after-select);
-    padding: 15px;
 }
 
 @media (max-width: 800px) {

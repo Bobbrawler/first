@@ -3,6 +3,7 @@ import itemsMeta from "../data/meta.json" with { type: "json" };
 window.onload = function () {
 
   const dropDownListContainers = document.querySelectorAll(".drop-down-list-container");
+  const dropDownLists = document.querySelectorAll(".drop-down-list");
 
   function setUpImageSrc(selectItemImage,selectItemSrc) {
     selectItemImage.src = "resources/images/items/" + selectItemSrc;
@@ -19,15 +20,14 @@ window.onload = function () {
   function openDropdownList(startButton,list,selectItemImage) {
     event.stopPropagation();
     closeDropdownLists();
-    const listContainer = list.parentElement;
-    listContainer.classList.add("open");
+    list.classList.add("open");
     startButton.classList.remove("start-button-selected");
     closeImageSelectItem(selectItemImage);
   }
 
   function closeDropdownLists() {
-    dropDownListContainers.forEach((dropDownListContainer) => {
-      dropDownListContainer.classList.remove("open");
+    dropDownLists.forEach((dropDownList) => {
+      dropDownList.classList.remove("open");
     });
   }
 
