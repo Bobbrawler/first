@@ -1,23 +1,23 @@
 import itemsMeta from "../data/meta.json" with { type: "json" };
 
-window.onload = function () {
+window.onload = () => {
 
   const dropDownListContainers = document.querySelectorAll(".drop-down-list-container");
   const dropDownLists = document.querySelectorAll(".drop-down-list");
 
-  function setUpImageSrc(selectItemImage,selectItemSrc) {
+  const setUpImageSrc = (selectItemImage, selectItemSrc) => {
     selectItemImage.src = "resources/images/items/" + selectItemSrc;
   }
 
-  function openImageSelectItem(selectItemImage) {
+  const openImageSelectItem = (selectItemImage) => {
     selectItemImage.style.display = "block";
   }
 
-  function closeImageSelectItem(selectItemImage) {
+  const closeImageSelectItem = (selectItemImage) => {
     selectItemImage.style.display = "none";
   }
 
-  function openDropdownList(startButton,list,selectItemImage) {
+  const openDropdownList = (event, startButton, list, selectItemImage) => {
     event.stopPropagation();
     closeDropdownLists();
     list.classList.add("open");
@@ -25,17 +25,22 @@ window.onload = function () {
     closeImageSelectItem(selectItemImage);
   }
 
-  function closeDropdownLists() {
+  const closeDropdownLists = () => {
+
     dropDownLists.forEach((dropDownList) => {
       dropDownList.classList.remove("open");
     });
+
   }
 
-  function selectProcess(startButton, selectItemImage) {
+  const selectProcess = (event, startButton, selectItemImage) => {
+
     const selectButton = event.target.closest(".drop-down-list-item");
+
     if (!selectButton) {
       return;
     }
+
     const selectItemName = selectButton.getAttribute("data-name");
     const selectItemSrc = selectButton.getAttribute("data-imageSrc");
     startButton.textContent = selectItemName;
@@ -45,7 +50,7 @@ window.onload = function () {
     closeDropdownLists();
   }
 
-  function createListButton(item) {
+  const createListButton = (item) => {
     const button = document.createElement("div");
     button.textContent = item.name;
     button.classList.add("drop-down-list-item");
@@ -55,7 +60,7 @@ window.onload = function () {
     return button;
   }
 
-  function initDropDownLists(itemsMeta) {
+  const initDropDownLists = (itemsMeta) => {
     dropDownListContainers.forEach((dropDownListContainer) => {
       const startButton = dropDownListContainer.querySelector(".start-button");
       const image = dropDownListContainer.querySelector(".image-select-item");
@@ -64,11 +69,11 @@ window.onload = function () {
         const button = createListButton(item);
         list.appendChild(button);
       });
-      list.addEventListener("click", function () {
-        selectProcess(startButton, image);
+      list.addEventListener("click", (event) => {
+        selectProcess(event, startButton, image);
       });
-      startButton.addEventListener("click", function () {
-        openDropdownList(startButton,list,image);
+      startButton.addEventListener("click", (event) => {
+        openDropdownList(event, startButton, list, image);
       });
     });
   }
